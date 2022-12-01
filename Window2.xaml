@@ -1,0 +1,53 @@
+﻿<Window x:Class="zadanie1.Window2"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:zadanie1"
+        mc:Ignorable="d"
+        Title="Window2" Height="450" Width="800">
+    <StackPanel>
+        <Slider x:Name="rozmiarTekstu"
+                
+                Minimum="10"
+                Maximum="45"
+                Value="20"
+                >
+           
+            
+        </Slider>
+        <ComboBox x:Name="kolor">
+            <ComboBoxItem>Red</ComboBoxItem>
+            <ComboBoxItem>blue</ComboBoxItem>
+            <ComboBoxItem>green</ComboBoxItem>
+        </ComboBox>
+        <TextBlock Foreground="{Binding ElementName=kolor, Path=Text}" FontSize="{Binding ElementName=rozmiarTekstu,
+            Path=Value
+            
+            }">Testowanie wiązania danych</TextBlock>
+
+        <TextBox x:Name="tekst"></TextBox>
+        <TextBlock  Text="{Binding ElementName=tekst, Path=Text}"></TextBlock>
+
+        <TextBox Text="{Binding ElementName=box2, Path=Text}" x:Name="box1"></TextBox>
+        <TextBox Text="{Binding ElementName=box1, Path=Text}" x:Name="box2"></TextBox>
+        <Slider x:Name="slider2"
+                 Minimum="0"
+                Maximum="255"
+                Value="0"
+                TickFrequency="1"
+                IsSnapToTickEnabled="True"
+                ></Slider>
+        <TextBox Text="{Binding ElementName=slider2, Path=Value, UpdateSourceTrigger=PropertyChanged}" x:Name="liczba3"></TextBox>
+
+        <Slider x:Name="slider3"
+                 Minimum="1"
+                Maximum="45"
+                Value="20"
+                TickFrequency="1"
+                IsSnapToTickEnabled="True"
+                ></Slider>
+        <TextBox Text="{Binding ElementName=slider3, Path=Value, UpdateSourceTrigger=LostFocus}" x:Name="liczba4"></TextBox>
+        <TextBlock FontSize="{Binding ElementName=slider3, Path=Value, UpdateSourceTrigger=LostFocus}"> Text do zmiany trzcionki</TextBlock>
+    </StackPanel>
+</Window>
